@@ -1,9 +1,13 @@
 <div style="max-width: 400px; margin: 0 auto">
   <mat-card style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-    <ng-container *ngFor="let emoji of emojiData" (click)="selectEmoji(emoji)" >
-      <div style="position: relative; display: flex" (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
-        <button mat-icon-button>{{emoji.native}}</button>
-        <app-skin-variations *ngIf="emoji.show" [emoji]="emoji" (select)="selectEmoji($event)"></app-skin-variations>
+    <ng-container *ngFor="let emoji of emojiData">
+      <div style="display: flex;"
+           (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
+        <button mat-icon-button (click)="selectEmoji(emoji)" [class.hover-btn]="emoji['show']">
+          <!--<span style="position: absolute; left: 0; top: 0; width: 100%">{{emoji.native}}</span>-->
+          <div [class]="'img-' + emoji.unified.toLowerCase()"></div>
+        </button>
+        <app-skin-variations *ngIf="emoji['show']" [emoji]="emoji" (select)="selectEmoji($event)"></app-skin-variations>
       </div>
     </ng-container>
   </mat-card>

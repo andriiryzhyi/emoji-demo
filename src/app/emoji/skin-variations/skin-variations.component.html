@@ -1,5 +1,10 @@
 <ng-container *ngIf="emoji.skin_variations && emoji.skin_variations.length">
-  <mat-card style="padding: 4px; position: absolute; display: flex; flex-direction: row; z-index: 1;">
-    <button mat-icon-button style="margin: 0 2px" *ngFor="let emoji_skin of emoji.skin_variations" (click)="selectEmoji(emoji_skin)">{{emoji_skin.native}}</button>
+  <mat-card style="margin-top: -4px; padding: 4px; position: absolute; display: flex; flex-direction: row; z-index: 1; transition: all 1s ease .3s">
+    <div *ngFor="let emoji_skin of emoji.skin_variations">
+      <button mat-icon-button style="margin: 0 2px" (click)="selectEmoji(emoji_skin)">
+        <!--<span style="position: absolute; left: 0; width: 100%">{{emoji_skin.native}}</span>-->
+        <div [class]="'img-' + emoji_skin.unified.toLowerCase()"></div>
+      </button>
+    </div>
   </mat-card>
 </ng-container>
