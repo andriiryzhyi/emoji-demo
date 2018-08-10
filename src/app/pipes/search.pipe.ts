@@ -24,10 +24,11 @@ export class SearchPipe implements PipeTransform {
         }
       })
 
-      let strMatches = str.short_name.match(new RegExp(`^${inputValue}`, 'gi'));
+      let shortName = str.short_name.match(new RegExp(`^${inputValue}`, 'gi'));
+      let name = str.short_name.match(new RegExp(`^${inputValue}`, 'gi'));
       //   console.log('str', str);
       //   console.log('strMatches', strMatches);
-      return (el || strMatches) ? true : false;
+      return (el || name || shortName) ? true : false;
     });
   }
 
