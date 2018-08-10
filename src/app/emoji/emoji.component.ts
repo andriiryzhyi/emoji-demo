@@ -41,6 +41,12 @@ export class EmojiComponent implements OnInit {
     //   }
     // });
     console.log('emoji data', this.emojiData);
+    // this.emojiData.forEach(item => {
+    //   if (item.short_name === 'grin') {
+    //     console.log('item', item);
+    //     this.emojiData = [item];
+    //   }
+    // })
   }
 
   selectEmoji(emoji) {

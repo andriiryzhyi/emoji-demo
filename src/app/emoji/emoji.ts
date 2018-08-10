@@ -52862,25 +52862,25 @@ export const emojiData = [
     'text': '',
     'colons': ':flag-um:'
   },
-  {
-    'name': 'United Nations Flag',
-    'unified': '1F1FA-1F1F3',
-    'short_name': 'flag-un',
-    'sheet': [
-      5,
-      10
-    ],
-    'short_names': [
-      'flag-un'
-    ],
-    'id': 'flag-un',
-    'native': '🇺🇳',
-    'skin_variations': [],
-    'keywords': [],
-    'emoticons': [],
-    'text': '',
-    'colons': ':flag-un:'
-  },
+  // {
+  //   'name': 'United Nations Flag',
+  //   'unified': '1F1FA-1F1F3',
+  //   'short_name': 'flag-un',
+  //   'sheet': [
+  //     5,
+  //     10
+  //   ],
+  //   'short_names': [
+  //     'flag-un'
+  //   ],
+  //   'id': 'flag-un',
+  //   'native': '🇺🇳',
+  //   'skin_variations': [],
+  //   'keywords': [],
+  //   'emoticons': [],
+  //   'text': '',
+  //   'colons': ':flag-un:'
+  // },
   {
     'name': 'United States Flag',
     'unified': '1F1FA-1F1F8',
