@@ -1,5 +1,10 @@
 <div style="max-width: 400px; margin: 0 auto">
-  <mat-card>
-
+  <mat-card style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+    <ng-container *ngFor="let emoji of emojiData" (click)="selectEmoji(emoji)" >
+      <div style="position: relative; display: flex" (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
+        <button mat-icon-button>{{emoji.native}}</button>
+        <app-skin-variations *ngIf="emoji.show" [emoji]="emoji" (select)="selectEmoji($event)"></app-skin-variations>
+      </div>
+    </ng-container>
   </mat-card>
 </div>
