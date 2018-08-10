@@ -19,12 +19,12 @@ export class SearchPipe implements PipeTransform {
       str.keywords.forEach(s => {
         match = s.match(new RegExp(`^${inputValue}`, 'gi'));
         if (match) {
-          console.log('match', s);
+          // console.log('match', s);
           el = str;
         }
       })
 
-      let strMatches = str.name.match(new RegExp(`^${inputValue}`, 'gi'));
+      let strMatches = str.short_name.match(new RegExp(`^${inputValue}`, 'gi'));
       //   console.log('str', str);
       //   console.log('strMatches', strMatches);
       return (el || strMatches) ? true : false;
