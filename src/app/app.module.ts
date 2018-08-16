@@ -15,7 +15,7 @@ import 'hammerjs';
     BrowserModule,
     MaterialModule,
     PickerModule,
-    EmojiModule
+    EmojiModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

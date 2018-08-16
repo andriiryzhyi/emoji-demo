@@ -5,15 +5,103 @@
       <mat-icon matPrefix>search</mat-icon>
       <input matInput #searchInput placeholder="emoji name">
     </mat-form-field>
-    <ng-container *ngFor="let emoji of emojiData | search:searchInput.value">
-      <div style="display: flex;"
-           (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
-        <button mat-icon-button (click)="selectEmoji(emoji)" [class.hover-btn]="emoji['show']">
-          <!--<span style="position: absolute; left: 0; top: 0; width: 100%">{{emoji.native}}</span>-->
-          <div [class]="'img-' + emoji.unified.toLowerCase()"></div>
-        </button>
-        <app-skin-variations *ngIf="emoji['show']" [emoji]="emoji" (select)="selectEmoji($event)"></app-skin-variations>
-      </div>
-    </ng-container>
+    <div style="display: flex; flex-wrap: wrap;">
+
+      <div class="sticky"><span>Smileys & People</span>{{smileysPeople.length}}</div>
+      <ng-container *ngFor="let emoji of smileysPeople | search:searchInput.value">
+        <div style="display: flex; position: relative"
+             (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
+          <button mat-icon-button (click)="selectEmoji(emoji)" [class.hover-btn]="emoji['show']">
+            <!--<span style="position: absolute; left: 0; top: 0; width: 100%">{{emoji.native}}</span>-->
+            <div [class]="'img-' + emoji.unified.toLowerCase()"></div>
+          </button>
+          <app-skin-variations *ngIf="emoji['show']" [emoji]="emoji" (select)="selectEmoji($event)"></app-skin-variations>
+        </div>
+      </ng-container>
+
+      <div class="sticky"><span>Animals & Nature</span>{{animalsNature.length}}</div>
+      <ng-container *ngFor="let emoji of animalsNature | search:searchInput.value">
+        <div style="display: flex; position: relative"
+             (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
+          <button mat-icon-button (click)="selectEmoji(emoji)" [class.hover-btn]="emoji['show']">
+            <!--<span style="position: absolute; left: 0; top: 0; width: 100%">{{emoji.native}}</span>-->
+            <div [class]="'img-' + emoji.unified.toLowerCase()"></div>
+          </button>
+          <app-skin-variations *ngIf="emoji['show']" [emoji]="emoji" (select)="selectEmoji($event)"></app-skin-variations>
+        </div>
+      </ng-container>
+
+      <div class="sticky"><span>Food & Drink</span>{{foodDrink.length}}</div>
+      <ng-container *ngFor="let emoji of foodDrink | search:searchInput.value">
+        <div style="display: flex; position: relative"
+             (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
+          <button mat-icon-button (click)="selectEmoji(emoji)" [class.hover-btn]="emoji['show']">
+            <!--<span style="position: absolute; left: 0; top: 0; width: 100%">{{emoji.native}}</span>-->
+            <div [class]="'img-' + emoji.unified.toLowerCase()"></div>
+          </button>
+          <app-skin-variations *ngIf="emoji['show']" [emoji]="emoji" (select)="selectEmoji($event)"></app-skin-variations>
+        </div>
+      </ng-container>
+
+      <div class="sticky"><span>Activity</span>{{activities.length}}</div>
+      <ng-container *ngFor="let emoji of activities | search:searchInput.value">
+        <div style="display: flex; position: relative"
+             (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
+          <button mat-icon-button (click)="selectEmoji(emoji)" [class.hover-btn]="emoji['show']">
+            <!--<span style="position: absolute; left: 0; top: 0; width: 100%">{{emoji.native}}</span>-->
+            <div [class]="'img-' + emoji.unified.toLowerCase()"></div>
+          </button>
+          <app-skin-variations *ngIf="emoji['show']" [emoji]="emoji" (select)="selectEmoji($event)"></app-skin-variations>
+        </div>
+      </ng-container>
+
+      <div class="sticky"><span>Travel & Places</span>{{travelsPlaces.length}}</div>
+      <ng-container *ngFor="let emoji of travelsPlaces | search:searchInput.value">
+        <div style="display: flex; position: relative"
+             (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
+          <button mat-icon-button (click)="selectEmoji(emoji)" [class.hover-btn]="emoji['show']">
+            <!--<span style="position: absolute; left: 0; top: 0; width: 100%">{{emoji.native}}</span>-->
+            <div [class]="'img-' + emoji.unified.toLowerCase()"></div>
+          </button>
+          <app-skin-variations *ngIf="emoji['show']" [emoji]="emoji" (select)="selectEmoji($event)"></app-skin-variations>
+        </div>
+      </ng-container>
+
+      <div class="sticky"><span>Objects</span>{{objects.length}}</div>
+      <ng-container *ngFor="let emoji of objects | search:searchInput.value">
+        <div style="display: flex; position: relative"
+             (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
+          <button mat-icon-button (click)="selectEmoji(emoji)" [class.hover-btn]="emoji['show']">
+            <!--<span style="position: absolute; left: 0; top: 0; width: 100%">{{emoji.native}}</span>-->
+            <div [class]="'img-' + emoji.unified.toLowerCase()"></div>
+          </button>
+          <app-skin-variations *ngIf="emoji['show']" [emoji]="emoji" (select)="selectEmoji($event)"></app-skin-variations>
+        </div>
+      </ng-container>
+
+      <div class="sticky"><span>Symbols</span>{{symbols.length}}</div>
+      <ng-container *ngFor="let emoji of symbols | search:searchInput.value">
+        <div style="display: flex; position: relative"
+             (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
+          <button mat-icon-button (click)="selectEmoji(emoji)" [class.hover-btn]="emoji['show']">
+            <!--<span style="position: absolute; left: 0; top: 0; width: 100%">{{emoji.native}}</span>-->
+            <div [class]="'img-' + emoji.unified.toLowerCase()"></div>
+          </button>
+          <app-skin-variations *ngIf="emoji['show']" [emoji]="emoji" (select)="selectEmoji($event)"></app-skin-variations>
+        </div>
+      </ng-container>
+
+      <div class="sticky"><span>Flags</span>{{flags.length}}</div>
+      <ng-container *ngFor="let emoji of flags | search:searchInput.value">
+        <div style="display: flex; position: relative"
+             (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
+          <button mat-icon-button (click)="selectEmoji(emoji)" [class.hover-btn]="emoji['show']">
+            <!--<span style="position: absolute; left: 0; top: 0; width: 100%">{{emoji.native}}</span>-->
+            <div [class]="'img-' + emoji.unified.toLowerCase()"></div>
+          </button>
+          <app-skin-variations *ngIf="emoji['show']" [emoji]="emoji" (select)="selectEmoji($event)"></app-skin-variations>
+        </div>
+      </ng-container>
+    </div>
   </mat-card>
 </div>

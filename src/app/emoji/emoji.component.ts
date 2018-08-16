@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { emojiData } from './emoji';
-import { u1f3fb } from './1f3fb';
-import { u1f3fc } from './1f3fc';
-import { u1f3fd } from './1f3fd';
-import { u1f3fe } from './1f3fe';
-import { u1f3ff } from './1f3ff';
+import { flags } from './flags';
+import { smileysPeople } from './smileys_people';
+import { animalsNature } from './animals_nature';
+import { foodDrink } from './food_drink';
+import { activities } from './activities';
+import { travelsPlaces } from './travels_places';
+import { objects } from './objects';
+import { symbols } from './symbols';
 
 @Component({
   selector: 'app-emoji',
@@ -13,8 +15,14 @@ import { u1f3ff } from './1f3ff';
 })
 export class EmojiComponent implements OnInit {
 
-  emojiData = emojiData;
-  u1f3fb = u1f3fb;
+  smileysPeople = smileysPeople;
+  animalsNature = animalsNature;
+  foodDrink = foodDrink;
+  activities = activities;
+  travelsPlaces = travelsPlaces;
+  objects = objects;
+  symbols = symbols;
+  flags = flags;
 
   // '👨🏾‍🎓'.codePointAt(6).toString(16);
 
@@ -40,7 +48,7 @@ export class EmojiComponent implements OnInit {
     //     item.skin_variations[4] = f[0];
     //   }
     // });
-    console.log('emoji data', this.emojiData);
+    // console.log('emoji data', this.emojiData);
     // this.emojiData.forEach(item => {
     //   if (item.short_name === 'grin') {
     //     console.log('item', item);
