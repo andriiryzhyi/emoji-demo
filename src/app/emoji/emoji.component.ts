@@ -71,17 +71,36 @@ export class EmojiComponent implements OnInit {
     console.log(emoji);
   }
 
-  selectEmojiCategory(index, e) {
+  selectEmojiCategory(index, e?) {
     this.emojiBlock.nativeElement.scrollTop = this.offsetTops[index];
     let emojiMartAnchors = document.getElementsByClassName('emoji-mart-anchor');
     for (let i = 0; i < emojiMartAnchors.length; i++) {
       emojiMartAnchors[i].classList.remove('active');
+    }
+    if (!e) {
+      return;
     }
     if (e.target.className === 'emoji-mart-anchor') {
       e.target.classList.add('active');
     } else {
       e.target.parentElement.classList.add('active');
     }
+  }
+
+  scrollEmojis(e) {
+    console.log(e);
+    this.offsetTops.forEach((offsetTop, index) => {
+      // console.log(e.target.scrollTop, offsetTop - this.offsetTops[0]);
+      if (e.target.scrollTop >= offsetTop - this.offsetTops[0]) {
+        // this.selectEmojiCategory(index);
+        let emojiMartAnchors = document.getElementsByClassName('emoji-mart-anchor');
+        for (let i = 0; i < emojiMartAnchors.length; i++) {
+          emojiMartAnchors[i].classList.remove('active');
+        }
+        emojiMartAnchors[index].classList.add('active');
+        console.log(index);
+      }
+    })
   }
 
 }

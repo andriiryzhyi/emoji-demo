@@ -33,7 +33,7 @@
       <input matInput #searchInput placeholder="emoji name">
     </mat-form-field>
 
-    <div class="emoji-block" style="display: flex; flex-wrap: wrap; overflow: auto; max-height: 300px;" #emojiBlock>
+    <div class="emoji-block" style="display: flex; flex-wrap: wrap; overflow: auto; max-height: 300px;" #emojiBlock (scroll)="scrollEmojis($event)">
 
       <div class="sticky" [attr.data-emoji-category]="'Smileys & People'"><span>Smileys & People</span>{{smileysPeople.length}}</div>
       <ng-container *ngFor="let emoji of smileysPeople | search:searchInput.value">
