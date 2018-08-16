@@ -1,13 +1,41 @@
 <div style="max-width: 368px; margin: 0 auto">
   <mat-card style="display: flex; flex-wrap: wrap;">
+    <div class="emoji-mart-anchors" style="display: flex; flex: 1;">
+      <span class="emoji-mart-anchor active" (click)="selectEmojiCategory(0, $event)">
+        <span [class]="'img-' + smileysPeople[0].unified.toLowerCase()"></span>
+      </span>
+      <span class="emoji-mart-anchor" (click)="selectEmojiCategory(1, $event)">
+        <span [class]="'img-' + animalsNature[0].unified.toLowerCase()"></span>
+      </span>
+      <span class="emoji-mart-anchor" (click)="selectEmojiCategory(2, $event)">
+        <span [class]="'img-' + foodDrink[0].unified.toLowerCase()"></span>
+      </span>
+      <span class="emoji-mart-anchor" (click)="selectEmojiCategory(3, $event)">
+        <span [class]="'img-' + activities[0].unified.toLowerCase()"></span>
+      </span>
+      <span class="emoji-mart-anchor" (click)="selectEmojiCategory(4, $event)">
+        <span [class]="'img-' + travelsPlaces[0].unified.toLowerCase()"></span>
+      </span>
+      <span class="emoji-mart-anchor" (click)="selectEmojiCategory(5, $event)">
+        <span [class]="'img-' + objects[0].unified.toLowerCase()"></span>
+      </span>
+      <span class="emoji-mart-anchor" (click)="selectEmojiCategory(6, $event)">
+        <span [class]="'img-' + symbols[0].unified.toLowerCase()"></span>
+      </span>
+      <span class="emoji-mart-anchor" (click)="selectEmojiCategory(7, $event)">
+        <span [class]="'img-' + flags[0].unified.toLowerCase()"></span>
+      </span>
+    </div>
+
     <mat-form-field style="width: 100%">
       <mat-label>State</mat-label>
       <mat-icon matPrefix>search</mat-icon>
       <input matInput #searchInput placeholder="emoji name">
     </mat-form-field>
-    <div style="display: flex; flex-wrap: wrap;">
 
-      <div class="sticky"><span>Smileys & People</span>{{smileysPeople.length}}</div>
+    <div class="emoji-block" style="display: flex; flex-wrap: wrap; overflow: auto; max-height: 300px;" #emojiBlock>
+
+      <div class="sticky" [attr.data-emoji-category]="'Smileys & People'"><span>Smileys & People</span>{{smileysPeople.length}}</div>
       <ng-container *ngFor="let emoji of smileysPeople | search:searchInput.value">
         <div style="display: flex; position: relative"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
@@ -19,7 +47,7 @@
         </div>
       </ng-container>
 
-      <div class="sticky"><span>Animals & Nature</span>{{animalsNature.length}}</div>
+      <div class="sticky" [attr.data-emoji-category]="'Animals & Nature'"><span>Animals & Nature</span>{{animalsNature.length}}</div>
       <ng-container *ngFor="let emoji of animalsNature | search:searchInput.value">
         <div style="display: flex; position: relative"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
@@ -31,7 +59,7 @@
         </div>
       </ng-container>
 
-      <div class="sticky"><span>Food & Drink</span>{{foodDrink.length}}</div>
+      <div class="sticky" [attr.data-emoji-category]="'Food & Drink'"><span>Food & Drink</span>{{foodDrink.length}}</div>
       <ng-container *ngFor="let emoji of foodDrink | search:searchInput.value">
         <div style="display: flex; position: relative"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
@@ -43,7 +71,7 @@
         </div>
       </ng-container>
 
-      <div class="sticky"><span>Activity</span>{{activities.length}}</div>
+      <div class="sticky" [attr.data-emoji-category]="'Activity'"><span>Activity</span>{{activities.length}}</div>
       <ng-container *ngFor="let emoji of activities | search:searchInput.value">
         <div style="display: flex; position: relative"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
@@ -55,7 +83,7 @@
         </div>
       </ng-container>
 
-      <div class="sticky"><span>Travel & Places</span>{{travelsPlaces.length}}</div>
+      <div class="sticky" [attr.data-emoji-category]="'Travel & Places'"><span>Travel & Places</span>{{travelsPlaces.length}}</div>
       <ng-container *ngFor="let emoji of travelsPlaces | search:searchInput.value">
         <div style="display: flex; position: relative"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
@@ -67,7 +95,7 @@
         </div>
       </ng-container>
 
-      <div class="sticky"><span>Objects</span>{{objects.length}}</div>
+      <div class="sticky" [attr.data-emoji-category]="'Objects'"><span>Objects</span>{{objects.length}}</div>
       <ng-container *ngFor="let emoji of objects | search:searchInput.value">
         <div style="display: flex; position: relative"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
@@ -79,7 +107,7 @@
         </div>
       </ng-container>
 
-      <div class="sticky"><span>Symbols</span>{{symbols.length}}</div>
+      <div class="sticky" [attr.data-emoji-category]="'Symbols'"><span>Symbols</span>{{symbols.length}}</div>
       <ng-container *ngFor="let emoji of symbols | search:searchInput.value">
         <div style="display: flex; position: relative"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
@@ -91,7 +119,7 @@
         </div>
       </ng-container>
 
-      <div class="sticky"><span>Flags</span>{{flags.length}}</div>
+      <div class="sticky" [attr.data-emoji-category]="'Flags'"><span>Flags</span>{{flags.length}}</div>
       <ng-container *ngFor="let emoji of flags | search:searchInput.value">
         <div style="display: flex; position: relative"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
