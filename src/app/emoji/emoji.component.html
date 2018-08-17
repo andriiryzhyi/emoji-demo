@@ -1,4 +1,4 @@
-<div style="min-width: 296px; width: 296px; max-width: 336px; margin: 0 auto">
+<div style="min-width: 296px; width: 296px; max-width: 336px; margin: 0 auto; text-align: left; font-size: 14px">
   <mat-card style="display: flex; flex-wrap: wrap; padding: 0">
     <div class="emoji-mart-anchors" style="display: flex; flex: 1;">
       <span class="emoji-mart-anchor active" (click)="selectEmojiCategory(0, $event)">
@@ -8,22 +8,22 @@
         <span [class]="'img-' + animalsNature[0].unified.toLowerCase()"></span>
       </span>
       <span class="emoji-mart-anchor" (click)="selectEmojiCategory(2, $event)">
-        <span [class]="'img-' + foodDrink[0].unified.toLowerCase()"></span>
+        <span [class]="'img-' + '1F349'.toLowerCase()"></span>
       </span>
       <span class="emoji-mart-anchor" (click)="selectEmojiCategory(3, $event)">
-        <span [class]="'img-' + activities[0].unified.toLowerCase()"></span>
+        <span [class]="'img-' + '26BD'.toLowerCase()"></span>
       </span>
       <span class="emoji-mart-anchor" (click)="selectEmojiCategory(4, $event)">
         <span [class]="'img-' + travelsPlaces[0].unified.toLowerCase()"></span>
       </span>
       <span class="emoji-mart-anchor" (click)="selectEmojiCategory(5, $event)">
-        <span [class]="'img-' + objects[0].unified.toLowerCase()"></span>
+        <span [class]="'img-' + '1F4A1'.toLowerCase()"></span>
       </span>
       <span class="emoji-mart-anchor" (click)="selectEmojiCategory(6, $event)">
-        <span [class]="'img-' + symbols[0].unified.toLowerCase()"></span>
+        <span [class]="'img-' + '2122-FE0F'.toLowerCase()"></span>
       </span>
       <span class="emoji-mart-anchor" (click)="selectEmojiCategory(7, $event)">
-        <span [class]="'img-' + flags[0].unified.toLowerCase()"></span>
+        <span [class]="'img-' + '1F3F3-FE0F'.toLowerCase()"></span>
       </span>
     </div>
 
@@ -37,7 +37,7 @@
     <div class="emoji-block" #emojiBlock (scroll)="scrollEmojis($event)">
       <div *ngIf="isSearchng" class="sticky" [attr.data-emoji-category]="'Search Results'"><span>Search Results</span></div>
 
-      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Smileys & People'"><span>Smileys & People</span>{{smileysPeople.length}}</div>
+      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Smileys & People'"><span>Smileys & People</span></div>
       <ng-container *ngFor="let emoji of smileysPeople | search:searchInput.value">
         <div style="display: flex;"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
@@ -49,7 +49,7 @@
         </div>
       </ng-container>
 
-      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Animals & Nature'"><span>Animals & Nature</span>{{animalsNature.length}}</div>
+      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Animals & Nature'"><span>Animals & Nature</span></div>
       <ng-container *ngFor="let emoji of animalsNature | search:searchInput.value">
         <div
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
@@ -61,7 +61,7 @@
         </div>
       </ng-container>
 
-      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Food & Drink'"><span>Food & Drink</span>{{foodDrink.length}}</div>
+      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Food & Drink'"><span>Food & Drink</span></div>
       <ng-container *ngFor="let emoji of foodDrink | search:searchInput.value">
         <div style="display: flex; position: relative"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
@@ -73,7 +73,7 @@
         </div>
       </ng-container>
 
-      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Activity'"><span>Activity</span>{{activities.length}}</div>
+      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Activity'"><span>Activity</span></div>
       <ng-container *ngFor="let emoji of activities | search:searchInput.value">
         <div style="display: flex; position: relative"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
@@ -85,7 +85,7 @@
         </div>
       </ng-container>
 
-      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Travel & Places'"><span>Travel & Places</span>{{travelsPlaces.length}}</div>
+      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Travel & Places'"><span>Travel & Places</span></div>
       <ng-container *ngFor="let emoji of travelsPlaces | search:searchInput.value">
         <div style="display: flex; position: relative"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
@@ -97,7 +97,7 @@
         </div>
       </ng-container>
 
-      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Objects'"><span>Objects</span>{{objects.length}}</div>
+      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Objects'"><span>Objects</span></div>
       <ng-container *ngFor="let emoji of objects | search:searchInput.value">
         <div style="display: flex; position: relative"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
@@ -109,7 +109,7 @@
         </div>
       </ng-container>
 
-      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Symbols'"><span>Symbols</span>{{symbols.length}}</div>
+      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Symbols'"><span>Symbols</span></div>
       <ng-container *ngFor="let emoji of symbols | search:searchInput.value">
         <div style="display: flex; position: relative"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
@@ -121,7 +121,7 @@
         </div>
       </ng-container>
 
-      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Flags'"><span>Flags</span>{{flags.length}}</div>
+      <div *ngIf="!isSearchng" class="sticky" [attr.data-emoji-category]="'Flags'"><span>Flags</span></div>
       <ng-container *ngFor="let emoji of flags | search:searchInput.value">
         <div style="display: flex; position: relative"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
