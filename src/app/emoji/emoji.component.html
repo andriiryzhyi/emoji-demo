@@ -33,23 +33,31 @@
       <input matInput #searchInput placeholder="emoji name">
     </mat-form-field>
 
-    <div class="emoji-block" style="display: flex; flex-wrap: wrap; overflow: auto; max-height: 300px;" #emojiBlock (scroll)="scrollEmojis($event)">
+    <div class="emoji-block" style="display: flex; position: relative; flex-wrap: wrap; overflow: auto; max-height: 300px;" #emojiBlock (scroll)="scrollEmojis($event)">
 
       <div class="sticky" [attr.data-emoji-category]="'Smileys & People'"><span>Smileys & People</span>{{smileysPeople.length}}</div>
       <ng-container *ngFor="let emoji of smileysPeople | search:searchInput.value">
-        <div style="display: flex; position: relative"
+        <div style="display: flex;"
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
           <button mat-icon-button (click)="selectEmoji(emoji)" [class.hover-btn]="emoji['show']">
             <!--<span style="position: absolute; left: 0; top: 0; width: 100%">{{emoji.native}}</span>-->
             <div [class]="'img-' + emoji.unified.toLowerCase()"></div>
           </button>
+          <!--<mat-card *ngIf="emoji['show']" style="margin-top: -4px; position: absolute; padding: 4px; display: flex; flex-direction: row; z-index: 1; transition: all 1s ease .3s">-->
+            <!--<div *ngFor="let emoji_skin of emoji.skin_variations">-->
+              <!--<button mat-icon-button style="margin: 0 2px" (click)="selectEmoji(emoji_skin)">-->
+                <!--&lt;!&ndash;<span style="position: absolute; left: 0; width: 100%">{{emoji_skin.native}}</span>&ndash;&gt;-->
+                <!--<div [class]="'img-' + emoji_skin.unified.toLowerCase()"></div>-->
+              <!--</button>-->
+            <!--</div>-->
+          <!--</mat-card>-->
           <app-skin-variations *ngIf="emoji['show']" [emoji]="emoji" (select)="selectEmoji($event)"></app-skin-variations>
         </div>
       </ng-container>
 
       <div class="sticky" [attr.data-emoji-category]="'Animals & Nature'"><span>Animals & Nature</span>{{animalsNature.length}}</div>
       <ng-container *ngFor="let emoji of animalsNature | search:searchInput.value">
-        <div style="display: flex; position: relative"
+        <div
              (mouseover)="emoji.show = true" (mouseleave)="emoji.show = false">
           <button mat-icon-button (click)="selectEmoji(emoji)" [class.hover-btn]="emoji['show']">
             <!--<span style="position: absolute; left: 0; top: 0; width: 100%">{{emoji.native}}</span>-->

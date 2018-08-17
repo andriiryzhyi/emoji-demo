@@ -1,3 +1,12 @@
+:host {
+  position: absolute;
+  left: 2px;
+  right: 26px;
+  display: flex;
+  flex: 1;
+  margin-top: 40px;
+  z-index: 10;
+}
 button {
   &:hover {
     background: #e5e5e5;
