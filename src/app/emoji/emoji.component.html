@@ -1,5 +1,5 @@
-<div style="max-width: 368px; margin: 0 auto">
-  <mat-card style="display: flex; flex-wrap: wrap;">
+<div style="min-width: 296px; width: 296px; max-width: 336px; margin: 0 auto">
+  <mat-card style="display: flex; flex-wrap: wrap; padding: 0">
     <div class="emoji-mart-anchors" style="display: flex; flex: 1;">
       <span class="emoji-mart-anchor active" (click)="selectEmojiCategory(0, $event)">
         <span [class]="'img-' + smileysPeople[0].unified.toLowerCase()"></span>
@@ -27,7 +27,7 @@
       </span>
     </div>
 
-    <mat-form-field style="width: 100%">
+    <mat-form-field style="width: 100%; padding: 0 8px;">
       <mat-label>State</mat-label>
       <mat-icon matPrefix>search</mat-icon>
       <input matInput #searchInput placeholder="emoji name">
@@ -43,14 +43,6 @@
             <!--<span style="position: absolute; left: 0; top: 0; width: 100%">{{emoji.native}}</span>-->
             <div [class]="'img-' + emoji.unified.toLowerCase()"></div>
           </button>
-          <!--<mat-card *ngIf="emoji['show']" style="margin-top: -4px; position: absolute; padding: 4px; display: flex; flex-direction: row; z-index: 1; transition: all 1s ease .3s">-->
-            <!--<div *ngFor="let emoji_skin of emoji.skin_variations">-->
-              <!--<button mat-icon-button style="margin: 0 2px" (click)="selectEmoji(emoji_skin)">-->
-                <!--&lt;!&ndash;<span style="position: absolute; left: 0; width: 100%">{{emoji_skin.native}}</span>&ndash;&gt;-->
-                <!--<div [class]="'img-' + emoji_skin.unified.toLowerCase()"></div>-->
-              <!--</button>-->
-            <!--</div>-->
-          <!--</mat-card>-->
           <app-skin-variations *ngIf="emoji['show']" [emoji]="emoji" (select)="selectEmoji($event)"></app-skin-variations>
         </div>
       </ng-container>
