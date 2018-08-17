@@ -2,14 +2,24 @@
   background: #e5e5e5;
 }
 
-.sticky {
+.emoji-block {
   width: 100%;
-  position: sticky;
-  top: 0;
-  background: #fff;
-  z-index: 2;
-  padding: 4px 8px;
-  color: #333;
+  align-content: baseline;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  overflow: auto;
+  min-height: 115px;
+  max-height: 300px;
+  .sticky {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 2;
+    padding: 4px 8px;
+    color: #333;
+  }
 }
 
 .emoji-mart-anchors {
@@ -25,5 +35,13 @@
       border-bottom: 2px solid #039be5;
       background: #f3f3f3;
     }
+  }
+}
+
+.clear-search {
+  color: #999;
+  cursor: pointer;
+  &:hover {
+    color: #333;
   }
 }
