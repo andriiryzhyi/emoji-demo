@@ -2,3 +2,9 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import "~@ctrl/ngx-emoji-mart/picker";
 @import "emoji.scss";
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  background: #E8EAED;
+}
