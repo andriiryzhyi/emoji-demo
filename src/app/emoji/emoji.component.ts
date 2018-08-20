@@ -61,12 +61,44 @@ export class EmojiComponent implements OnInit {
     //     this.emojiData = [item];
     //   }
     // })
+
+    let emojiData = '';
+
+    this.smileysPeople.forEach(item => {
+      emojiData += `"${item.native}":"${item.unified}",`;
+      if (item.skin_variations.length) {
+        let skinVariations: any = item.skin_variations;
+        skinVariations.forEach(skinItem => {
+          emojiData += `"${skinItem.native}":"${skinItem.unified}",`;
+        })
+      }
+      // console.log(JSON.parse(char));
+      // console.log(char);
+    });
+    emojiData = '{' + emojiData.slice(0, -1) + '}';
+    emojiData = JSON.parse(emojiData);
+    console.log('emojiData', emojiData);
     setTimeout(() => {
       const emojiCategories: NodeList = document.querySelectorAll('[data-emoji-category]');
       for (let i = 0; i < emojiCategories.length; i++) {
         this.offsetTops.push(emojiCategories[i]['offsetTop']);
       }
     })
+  }
+
+  getEmojiesHash(smileysArray) {
+    let hashVariable = '';
+    smileysArray.forEach(item => {
+      hashVariable += `${item.native}:${item.unified}|`;
+      if (item.skin_variations.length) {
+        let skinVariations: any = item.skin_variations;
+        skinVariations.forEach(skinItem => {
+          hashVariable += `${skinItem.native}:${skinItem.unified}|`;
+        })
+      }
+    });
+    console.log(hashVariable.slice(0, -1));
+    return hashVariable.slice(0, -1);
   }
 
   selectEmoji(emoji) {
@@ -131,5 +163,7 @@ export class EmojiComponent implements OnInit {
     let scroll = new Event('scroll');
     this.emojiBlock.nativeElement.dispatchEvent(scroll);
   }
+
+
 
 }
