@@ -30,11 +30,11 @@ export class EmojiPipe implements PipeTransform {
     if (text) {
       // console.log('text', text);
       // let emojiesHash = this.getEmojisObject(this.emojiesHash);
-      console.log('text', text, this.emojiData[text]);
+      console.log('text', text, text.length, this.emojiData[text]);
       if (this.emojiData[text]) {
         return '<span class="img-' + this.emojiData[text].toLowerCase() + ' sm-emoji"></span>';
       } else {
-        return;
+        return '<span class="img-' + this.emojiData[String.fromCodePoint(text.codePointAt(), 65039)].toLowerCase() + ' sm-emoji"></span>';
       }
     }
   }
